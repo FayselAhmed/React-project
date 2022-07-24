@@ -38,7 +38,6 @@ function App() {
             </Route> */}
           </Routes>
         </Router>
-        <h1>Hellow</h1>
       </div>
     </Userprovider>
   );
