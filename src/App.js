@@ -1,24 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
+import Home from './components/Home/Home';
+import Delete from './components/Delete/Delete';
+import { Userprovider } from './components/Usercontext/Usercontext';
+import Read from './components/Read/Read';
+// import NotFound from './components/NotFound/NotFound';
+import Create from './Create/Create';
+import Edit from './components/Edit/Edit';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Userprovider>
+      <div className="app">
+        <Router>
+          <Routes>
+            <Route path="/Create/">
+              <Create />
+            </Route>
+            <Route path="/Read/:id">
+              <Read />
+            </Route>
+            <Route path="/Edit/:id">
+              <Edit />
+            </Route>
+            <Route path="/Delete/:id">
+              <Delete />
+            </Route>
+            <Route exact path="/Home/">
+              <Home />
+            </Route>
+            {/* <Route path="*">
+              <NotFound />
+            </Route> */}
+          </Routes>
+        </Router>
+        <h1>Hellow</h1>
+      </div>
+    </Userprovider>
   );
 }
 
